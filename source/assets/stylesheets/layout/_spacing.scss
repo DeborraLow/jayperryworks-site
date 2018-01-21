@@ -12,6 +12,14 @@
   .l-#{$prop} {
     @include rem($prop, gutter());
   }
+  .l-#{$prop}-y {
+    @include rem(#{$prop}-top, gutter());
+    @include rem(#{$prop}-bottom, gutter());
+  }
+  .l-#{$prop}-x {
+    @include rem(#{$prop}-left, gutter());
+    @include rem(#{$prop}-right, gutter());
+  }
   .l-no-#{$prop} {
     @include rem($prop, 0 !important);
   }
@@ -20,6 +28,14 @@
     @if $name != 'default' {
       .l-#{$prop}-#{$name} {
         @include rem($prop, gutter($name) !important);
+      }
+      .l-#{$prop}-y-#{$name} {
+        @include rem(#{$prop}-top, gutter($name));
+        @include rem(#{$prop}-bottom, gutter($name));
+      }
+      .l-#{$prop}-x-#{$name} {
+        @include rem(#{$prop}-left, gutter($name));
+        @include rem(#{$prop}-right, gutter($name));
       }
     }
   }

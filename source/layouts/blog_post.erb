@@ -33,20 +33,28 @@
     <main class="t-content t-content--dropcap l-wrapper l-margin-bottom-xwide">
       <%= yield %>
     </main>
-
-    <!-- <footer class="l-wrapper l-margin-top-wide l-margin-bottom">
-      <div class="border-top l-padding-top">
-        <h1 class="t-display t-display--slug t-scale-eta l-margin-bottom-narrow c-text-tertiary">Filed under:</h1>
-        <%# component "tag_list", locals: { tags: current_page.data.tags } %>
-      </div>
-    </footer> -->
-
   </article>
 
-  <!-- <nav class="border-top">
-    <%# prev_post(current_page.data.title) %>
-    <div>
-      <h1></h1>
+  <nav class="border-top">
+    <%
+      next_post = next_post(current_page.data.title)
+      prev_post = prev_post(current_page.data.title)
+    %>
+    <div class="l-wrapper l-padding-y-wide">
+      <ul class="l-gallery l-gallery--large">
+        <% if prev_post %>
+        <li class="l-gallery-item">
+          <h1 class="t-scale-eta t-accent-bold t-caps">Previous post</h1>
+          <%= link_to prev_post.data.title, prev_post.url, class: "t-heading t-scale-beta" %>
+        </li>
+        <% end %>
+        <% if next_post %>
+        <li class="l-gallery-item">
+          <h1 class="t-scale-eta t-accent-bold t-caps">Next post</h1>
+          <%= link_to next_post.data.title, next_post.url, class: "t-heading t-scale-beta" %>
+        </li>
+        <% end %>
+      </ul>
     </div>
-  </nav> -->
+  </nav>
 <% end %>
